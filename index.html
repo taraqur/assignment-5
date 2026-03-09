@@ -34,15 +34,18 @@
     </section>
 
     <section id="dashboard-page" style="display: none;">
-        <nav class="navbar">
-            <div class="nav-content">
-                <div class="brand"><i class="fab fa-github"></i> GitHub Issues Tracker</div>
-                <div class="nav-tools">
-                    <div class="search-bar">
+        <nav class="top-nav">
+            <div class="nav-container">
+                <div class="brand">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub Issues Tracker</span>
+                </div>
+                <div class="nav-actions">
+                    <div class="search-wrapper">
                         <i class="fas fa-search"></i>
                         <input type="text" id="search-input" placeholder="Search issues...">
                     </div>
-                    <button class="new-issue-btn">+ New Issue</button>
+                    <button class="btn-new-issue"><i class="fas fa-plus"></i> New Issue</button>
                 </div>
             </div>
         </nav>
@@ -76,18 +79,18 @@
         <div class="modal-body">
             <h2 id="m-title">Issue Title</h2>
             <div class="m-meta">
-                <span id="m-status" class="m-badge">Open</span>
+                <span id="m-status" class="m-badge">Status</span>
                 <span></span>
             </div>
             <div class="m-tags">
                 <span class="tag bug">BUG</span>
                 <span class="tag help">HELP WANTED</span>
             </div>
-            <p id="m-desc"></p>
+            <p id="m-desc">Description text...</p>
             <div class="m-footer-grid">
                 <div class="m-info">
-                    <label></label>
-                    <span id="m-assignee"></span>
+                    <label>Assignee:</label>
+                    <span id="m-assignee">Tarek</span>
                 </div>
                 <div class="m-info">
                     <label>Priority:</label>
