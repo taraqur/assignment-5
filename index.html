@@ -11,69 +11,92 @@
 
     <section id="login-page">
         <div class="login-card">
-            <div class="logo-area"><i class="fab fa-github"></i></div>
+            <div class="github-logo"><i class="fab fa-github"></i></div>
             <h1>GitHub Issues Tracker</h1>
             <p>Sign in to manage your issues</p>
             <form id="login-form">
-                <div class="input-box">
+                <div class="field">
                     <label>Username</label>
                     <input type="text" id="username" placeholder="Enter Username" required>
-                    <span class="hint-text">Default: admin</span>
+                    <span class="hint">Default: admin</span>
                 </div>
-                <div class="input-box">
+                <div class="field">
                     <label>Password</label>
                     <input type="password" id="password" placeholder="Enter Password" required>
-                    <span class="hint-text">Default: admin123</span>
+                    <span class="hint">Default: admin123</span>
                 </div>
-                <button type="submit" class="btn-login">Sign In</button>
+                <button type="submit" class="login-btn">Sign In</button>
             </form>
-            <div class="demo-creds">
-                <p><strong>Demo:</strong> admin / admin123</p>
+            <div class="demo-info">
+                <p><strong>Demo Credentials:</strong> admin / admin123</p>
             </div>
         </div>
     </section>
 
     <section id="dashboard-page" style="display: none;">
-        <nav class="top-nav">
-            <div class="nav-container">
-                <div class="brand">
-                    <i class="fab fa-github"></i>
-                    <span>GitHub Issues Tracker</span>
-                </div>
-                <div class="nav-right">
-                    <div class="search-container">
+        <nav class="navbar">
+            <div class="nav-content">
+                <div class="brand"><i class="fab fa-github"></i> GitHub Issues Tracker</div>
+                <div class="nav-tools">
+                    <div class="search-bar">
                         <i class="fas fa-search"></i>
                         <input type="text" id="search-input" placeholder="Search issues...">
                     </div>
-                    <button class="btn-new-issue"><i class="fas fa-plus"></i> New Issue</button>
+                    <button class="new-issue-btn">+ New Issue</button>
                 </div>
             </div>
         </nav>
 
-        <div class="main-body">
-            <div class="tabs">
-                <button class="tab-item active" onclick="filterData('all', this)">All</button>
-                <button class="tab-item" onclick="filterData('open', this)">Open</button>
-                <button class="tab-item" onclick="filterData('closed', this)">Closed</button>
+        <main class="main-container">
+            <div class="filter-tabs">
+                <button class="tab active" onclick="filterIssues('all', this)">All</button>
+                <button class="tab" onclick="filterIssues('open', this)">Open</button>
+                <button class="tab" onclick="filterIssues('closed', this)">Closed</button>
             </div>
 
             <div class="stats-header">
-                <div class="stats-info">
-                    <div class="icon-circle"><i class="fas fa-bullseye"></i></div>
+                <div class="stats-left">
+                    <div class="stats-icon"><i class="fas fa-bullseye"></i></div>
                     <div>
-                        <h2 id="total-text">0 Issues</h2>
+                        <h2 id="total-count">0 Issues</h2>
                         <p>Track and manage your project issues</p>
                     </div>
                 </div>
-                <div class="status-legend">
-                    <span><span class="dot green"></span> Open</span>
-                    <span><span class="dot purple"></span> Closed</span>
+                <div class="stats-right">
+                    <span><span class="dot open-dot"></span> Open</span>
+                    <span><span class="dot closed-dot"></span> Closed</span>
                 </div>
             </div>
 
             <div id="issues-grid" class="issues-grid"></div>
-        </div>
+        </main>
     </section>
+
+    <div id="issue-modal" class="modal">
+        <div class="modal-body">
+            <h2 id="m-title">Issue Title</h2>
+            <div class="m-meta">
+                <span id="m-status" class="m-badge">Open</span>
+                <span></span>
+            </div>
+            <div class="m-tags">
+                <span class="tag bug">BUG</span>
+                <span class="tag help">HELP WANTED</span>
+            </div>
+            <p id="m-desc"></p>
+            <div class="m-footer-grid">
+                <div class="m-info">
+                    <label></label>
+                    <span id="m-assignee"></span>
+                </div>
+                <div class="m-info">
+                    <label>Priority:</label>
+                    <span id="m-priority" class="p-badge">High</span>
+                </div>
+            </div>
+            <button class="close-btn" onclick="closeModal()">Close</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
